@@ -8,5 +8,7 @@ unit_tests:
   artifacts:
     paths:
         - coverage/
+  tags: 
+    - autoscale_premium
   
   
