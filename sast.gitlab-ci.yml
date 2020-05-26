@@ -7,8 +7,6 @@ scan_with_cx:
   artifacts:
       paths:
         - report.pdf
-  tags: 
-    - autoscale_premium
   only:
     - master
   
