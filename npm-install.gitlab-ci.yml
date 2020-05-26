@@ -1,28 +1,10 @@
 npm_install:
-    stage: npm_install
-    image : ${NODE_IMAGE}
-    script:
-      - npm install -g npm-cli-login
-      - npm set registry ${SOARIZON_REGISTRY}
-      - NPM_USER=${REGISTRY_USER} NPM_PASS=${REGISTRY_PASSWORD} NPM_EMAIL=${REGISTRY_EMAIL} NPM_REGISTRY=${SOARIZON_REGISTRY} npm-cli-login
-      - npm install
-      - npm install @soarizon/auth@latest
-      - npm install @soarizon/aviation-data-service@latest
-      - npm install @soarizon/compliance-service@latest
-      - npm install @soarizon/contact-service@latest
-      - npm install @soarizon/crew-service@latest
-      - npm install @soarizon/dal@latest
-      - npm install @soarizon/drone-service@latest
-      - npm install @soarizon/hubspot@latest
-      - npm install @soarizon/logger@latest
-      - npm install @soarizon/mission-service@latest
-      - npm install @soarizon/payment-service@latest
-      - npm install @soarizon/plan-service@latest
-      - npm install @soarizon/profile-service@latest
-      - npm install @soarizon/zendesk-service@latest
-    artifacts:
-      untracked: true
-      paths:
-        - node_modules/
-    tags: 
-      - autoscale_premium
+  stage: npm_install
+  image: ${NODE_IMAGE}
+  script:
+    - npm set registry ${SOARIZON_REGISTRY}
+    - npm install
+  artifacts:
+    untracked: true
+    paths:
+      - node_modules/

@@ -1,0 +1,14 @@
+quality_gate:
+  stage: quality_gate
+  image:
+    name: artifactory.thalesdigital.io/docker-public/runnerz/sonar-reports-in-merge-request:1.0.2
+    entrypoint: [""]
+  before_script: []
+  script:
+    - python /code/src/main.py --sonar-token $SONARQUBE_TOKEN --path $(pwd)/.scannerwork --gitlab-token $GITLAB_PRIVATE_TOKEN
+  needs:
+    - job: sonarqube
+      artifacts: true
+  tags:
+    - autoscale_premium
+  

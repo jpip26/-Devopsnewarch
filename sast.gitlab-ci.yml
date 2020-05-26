@@ -1,0 +1,14 @@
+scan_with_cx:
+  stage: sast
+  image: 
+    name: $SAST_DOCKER_IMAGE
+    tags: 
+      - autoscale_premium
+  script:
+      - /CxConsolePlugin-8.90.0/runCX Scan -v -ProjectName "CxServer\\SP\\Company\\Soarizon\\Soarizon_Compliance" -CxServer "https://checkmarx.security.apps.thalesdigital.io" -cxuser "$Checkmarx_user" -cxpassword "$Checkmarx_password" -locationtype folder -locationpath $PWD/src -locationPathExclude $PWD/src/test  -preset "Checkmarx Default"  -SASTLow 100 -SASTMedium 20 -SASTHigh 10 -ReportPDF $PWD/report.pdf -EnableOsa -OsaLocationPath node_modules*
+  artifacts:
+      paths:
+        - report.pdf
+  only:
+    - master
+  
