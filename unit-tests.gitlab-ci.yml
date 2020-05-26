@@ -3,8 +3,8 @@ unit_tests:
   image: ${NODE_IMAGE}
   script:
     - npm run test
-#   dependencies:
-#     - npm_install
+  dependencies:
+    - npm_install
   artifacts:
     paths:
         - coverage/
