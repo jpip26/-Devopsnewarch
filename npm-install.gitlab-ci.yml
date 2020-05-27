@@ -8,5 +8,5 @@ npm_install:
     untracked: true
     paths:
       - node_modules/
-#   tags: 
-#     - autoscale_premium
+  tags: 
+    - autoscale_premium
