@@ -9,6 +9,6 @@ scan_with_cx:
         - report.pdf
   tags:
     - autoscale_premium
-  only:
-    - master
+#   only:
+#     - master
   
