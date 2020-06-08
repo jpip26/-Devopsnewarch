@@ -9,6 +9,7 @@ quality_gate:
   needs:
     - job: sonarqube
       artifacts: true
+  allow_failure: true
   tags:
     - autoscale_premium
   
